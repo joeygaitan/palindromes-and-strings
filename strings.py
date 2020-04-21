@@ -73,7 +73,7 @@ def find_all_indexes(text, pattern):
     if pattern == "":
         for i in range(len(text)):
             index_array.append(i)
-            return index_array
+        return index_array
 
     for index in range(len(text)):
         print(text, pattern, text[index], pattern_index, index)
@@ -125,4 +125,4 @@ def main():
 
 if __name__ == '__main__':
     # main()
-    print(find_index('abra cadabra', 'adab'))
+    print(find_all_indexes('abc', ''))

@@ -19,10 +19,19 @@ def is_palindrome(text):
 
 def is_palindrome_iterative(text):
     # TODO: implement the is_palindrome function iteratively here
-    pass
+    
     # once implemented, change is_palindrome to call is_palindrome_iterative
     # to verify that your iterative implementation passes all tests
-
+    text = text.lower()
+    text = ''.join(letter for letter in text.lower() if 'a' <= letter <= 'z')
+    if text == "":
+        return True
+    tail_index = range(text)
+        for index in range(len(range)):
+            if text[index] == text[tail_index]:
+                else tail_index 
+            else:
+                return False 
 
 def is_palindrome_recursive(text, left=None, right=None):
     # TODO: implement the is_palindrome function recursively here
