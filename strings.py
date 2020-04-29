@@ -68,6 +68,7 @@ def find_all_indexes(text, pattern):
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
     # TODO: Implement find_all_indexes here (iteratively and/or recursively)
     pattern_index = 0
+    intial_pattern_index = 0
     index_array = []
 
     if pattern == "":
@@ -76,22 +77,33 @@ def find_all_indexes(text, pattern):
         return index_array
 
     for index in range(len(text)):
-        print(text, pattern, text[index], pattern_index, index)
+        print(text, pattern, text[index], pattern[pattern_index], index, pattern_index, intial_pattern_index)
         if text[index] == pattern[pattern_index]:
-            index_array.append(index)
+            if text[index] == pattern[0] and pattern_index == 0:
+                intial_pattern_index = index
             if pattern_index == len(pattern) - 1:
-                print("here")
-                return index_array
-            pattern_index += 1
+                print("here", intial_pattern_index)
+                index_array.append(intial_pattern_index)
+                intial_pattern_index = index
+                pattern_index = 0
+                if pattern_index == len(pattern) - 1:
+                    pass
+                else:
+                    pattern_index += 1
+                print("here bro", index_array, intial_pattern_index)
+            else:
+                pattern_index += 1
         else:
             pattern_index = 0
-            index_array.clear()
             if text[index] == pattern[pattern_index]:
-                index_array.append(index)
+                if text[index] == pattern[0]:
+                    intial_pattern_index = index
                 if pattern_index == len(pattern) - 1:
-                    return index_array
+                    index_array.append(intial_pattern_index)
+                    pattern_index = 0
                 pattern_index += 1
-    return []
+    print (index_array)
+    return index_array
 
 
 def test_string_algorithms(text, pattern):
@@ -125,4 +137,4 @@ def main():
 
 if __name__ == '__main__':
     # main()
-    print(find_all_indexes('abc', ''))
+    print(find_all_indexes('aaa', 'aa'))
