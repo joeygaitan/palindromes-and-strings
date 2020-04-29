@@ -82,7 +82,6 @@ def find_all_indexes(text, pattern):
             if text[index] == pattern[0] and pattern_index == 0:
                 intial_pattern_index = index
             if pattern_index == len(pattern) - 1:
-                print("here", intial_pattern_index)
                 index_array.append(intial_pattern_index)
                 intial_pattern_index = index
                 pattern_index = 0
@@ -90,7 +89,6 @@ def find_all_indexes(text, pattern):
                     pass
                 else:
                     pattern_index += 1
-                print("here bro", index_array, intial_pattern_index)
             else:
                 pattern_index += 1
         else:
